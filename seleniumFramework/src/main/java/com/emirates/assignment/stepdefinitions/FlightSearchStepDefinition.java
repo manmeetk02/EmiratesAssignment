@@ -11,10 +11,18 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import junit.framework.Assert;
 
+/**
+ * 
+ * Step Definition class which maps the features from flightSearch.feature
+ * Corresponding methods will be called
+ * 
+ */
+
 public class FlightSearchStepDefinition extends TestBase {
-	
+
 	HomePage homePage = new HomePage();
 	FlightSearchPage flightSearchPage = new FlightSearchPage();
+
 	/**
 	 * This method launches the browser and navigates to the emirates.com
 	 * 
@@ -27,21 +35,22 @@ public class FlightSearchStepDefinition extends TestBase {
 	}
 
 	/**
-	 * This method will select the arrival date from the Calendar
+	 * This method will input the arrival and departure ports on the home page
 	 * 
 	 * @throws InterruptedException
-	 * @throws IOException
 	 */
 	@When("^the user enters the \"(.*)\" and \"(.*)\" destinations and journey as one way$")
 	public void enter_departure_arrival_dates(String departurePort, String arrivalPort) throws InterruptedException {
 		homePage = new HomePage();
 		String title = homePage.validateThePageTitle();
-		Assert.assertEquals("Emirates flights – Book a flight, browse our flight offers and explore the Emirates Experience", title);
-	    homePage.navigateToFlightSearchScreen(departurePort, arrivalPort);
+		Assert.assertEquals(
+				"Emirates flights – Book a flight, browse our flight offers and explore the Emirates Experience",
+				title);
+		homePage.navigateToFlightSearchScreen(departurePort, arrivalPort);
 	}
-	
+
 	/**
-	 * This method will select the Journey Type i.e one way or return
+	 * This method will select the Journey Type i.e one way
 	 * 
 	 * @throws InterruptedException
 	 * @throws IOException
@@ -49,11 +58,11 @@ public class FlightSearchStepDefinition extends TestBase {
 	@Then("^user selects the flying dates$")
 	public void select_flightTypes() throws InterruptedException, IOException {
 		homePage.select_departure_date();
-		
+
 	}
 
 	/**
-	 * In this method the dates are selected for the flights
+	 * In this method will navigated to Flight Search Screen
 	 * 
 	 * @throws InterruptedException
 	 * @throws IOException
@@ -63,9 +72,10 @@ public class FlightSearchStepDefinition extends TestBase {
 		homePage.btnClick();
 
 	}
-	
+
 	/**
-	 * Search button is clicked after the flight search details are entered
+	 * Flight Search screen will be displayed here and the title of the page and
+	 * flight list will be validated
 	 * 
 	 * @throws InterruptedException
 	 * @throws IOException
@@ -79,11 +89,14 @@ public class FlightSearchStepDefinition extends TestBase {
 		flightSearchPage.flightListingCheck();
 
 	}
-	
+
+	/**
+	 * After performing all the steps, Browser will be closed
+	 * 
+	 */
 	@And("^the browser is closed$")
 	public void browser_is_closed() {
 		driver.close();
 	}
-
 
 }
