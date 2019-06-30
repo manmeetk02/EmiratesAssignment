@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="80.798215">
+<testcase classname="Verify the functionality of flight search on emirates.com" name="User should be able to search the flight" time="42.522535">
+<system-out><![CDATA[Given that the user is on Emirates.com......................................passed
+When the user enters the "DXB" and "LHR" destinations and journey as one way.passed
+And user selects the flying dates...........................................passed
+And clicks on the search flights button.....................................passed
+Then Flight Search Screen is displayed......................................passed
+And the browser is closed...................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Verify the functionality of flight search on emirates.com" name="User should be able to search the flight 2" time="38.27568">
+<system-out><![CDATA[Given that the user is on Emirates.com......................................passed
+When the user enters the "DEL" and "DXB" destinations and journey as one way.passed
+And user selects the flying dates...........................................passed
+And clicks on the search flights button.....................................passed
+Then Flight Search Screen is displayed......................................passed
+And the browser is closed...................................................passed
+]]></system-out>
+</testcase>
+</testsuite>
